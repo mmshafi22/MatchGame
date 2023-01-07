@@ -1,0 +1,23 @@
+.btn-tab {
+  background-color: transparent;
+  border: 0;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  width: 80px;
+  padding: 6px;
+  border-radius: 2px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.btn-active {
+  border-bottom: 3px solid #fec653;
+  color: #fec653;
+}
+@media (min-width: 768px) {
+  .btn-tab {
+    font-size: 20px;
+  }
+}

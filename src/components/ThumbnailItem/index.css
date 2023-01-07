@@ -1,0 +1,13 @@
+.thumb-item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.btn-thumb {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+.thumb-img {
+  width: 100px;
+}
