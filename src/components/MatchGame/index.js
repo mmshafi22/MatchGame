@@ -284,6 +284,15 @@ class MatchGame extends Component {
     this.setState({isActive: tabId})
   }
 
+  onPlayAgain = () => {
+    this.setState(prevState => ({
+      isGameRunning: !prevState.isGameRunning,
+      seconds: 60,
+      score: 0,
+    }))
+    this.countSeconds()
+  }
+
   countSeconds = () => {
     const {isGameRunning} = this.state
     if (isGameRunning === true) {
@@ -301,11 +310,6 @@ class MatchGame extends Component {
     }
   }
 
-  onPlayAgain = () => {
-    this.setState(prevState => ({isGameRunning: !prevState.isGameRunning}))
-    this.countSeconds()
-  }
-
   render() {
     const {isActive, randomImage, score, seconds, isGameRunning} = this.state
     const {imageUrl} = randomImage
@@ -313,26 +317,30 @@ class MatchGame extends Component {
     return (
       <>
         <nav className="navbar">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/match-game-website-logo.png"
-            alt="website logo"
-            className="logo"
-          />
-          <div className="score-container">
-            <p className="nav-heading">
-              Score: <span> {score} </span>
-            </p>
-            <div className="seconds-container">
+          <ul className="nav-items">
+            <li>
               <img
-                src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
-                className="timer"
-                alt="timer"
+                src="https://assets.ccbp.in/frontend/react-js/match-game-website-logo.png"
+                alt="website logo"
+                className="logo"
               />
-              <p className="sec">
-                <span> {seconds} </span> sec
-              </p>
-            </div>
-          </div>
+            </li>
+            <li>
+              <div className="score-container">
+                <p className="nav-heading">
+                  Score: <span>{score}</span>
+                </p>
+                <div className="seconds-container">
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
+                    className="timer"
+                    alt="timer"
+                  />
+                  <p className="sec">{seconds} sec</p>
+                </div>
+              </div>
+            </li>
+          </ul>
         </nav>
         <div className="game-bg-container">
           {isGameRunning ? (
@@ -388,3 +396,4 @@ class MatchGame extends Component {
 }
 
 export default MatchGame
+
